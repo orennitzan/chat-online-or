@@ -1,1 +1,1 @@
-console.log('Gutten Morgen Oren Nitzan.');
+console.log('Gutten Morgen.');
