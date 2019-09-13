@@ -11,19 +11,18 @@ const app = express();
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', (req, res) => res.sendFile('index.html', {
-    root: './',
-    headers: {sockets_io_port: config.port_server}
+    root: './'
 }));
 
-const webServer = app.listen(config.port_web, () => {
-    logger.debug(`Web server is running on port ${webServer.address().port}`);
+const server = app.listen(process.env.PORT || config.port, () => {
+    logger.debug(`Web server is running on port ${server.address().port}`);
 });
 
 // Web page server - End
 
 // Socket io server - Start
 
-const io = sockets(config.port_server).sockets;
+const io = sockets(server).sockets;
 io.on('connection', socket => {
     const userName = 'Server';
     socket.emit('server-message', { user: userName, content: 'Hello you are connected' });

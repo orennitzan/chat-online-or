@@ -4,6 +4,11 @@ const joi = require("joi");
 
 const envVarsSchema = joi
   .object({
+    PORT: joi
+    .number()
+    .min(99)
+    .max(9999)
+    .required(),
     PORT_WEB: joi
       .number()
       .min(99)
@@ -42,6 +47,7 @@ const envVars = joi.attempt(process.env, envVarsSchema);
 
 const config = {
   env: envVars.NODE_ENV,
+  port: envVars.PORT,
   port_web: envVars.PORT_WEB,
   port_server: envVars.PORT_SERVER,
   logger: {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start:dev": "set NODE_ENV=development&& nodemon start index.js",
+    "startDev": "set NODE_ENV=development&& nodemon start index.js",
     "pretty": "prettier  --write **/*.js",
     "lint": "eslint --fix **/*.js",
     "test": "jest --detectOpenHandles ",
