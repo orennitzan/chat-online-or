@@ -7,7 +7,7 @@ const envVarsSchema = joi
     PORT: joi
     .number()
     .min(99)
-    .max(9999)
+    .max(99999)
     .required(),
     PORT_WEB: joi
       .number()
