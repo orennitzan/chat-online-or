@@ -28,11 +28,11 @@ io.on('connection', socket => {
     socket.emit('server-message', { user: userName, content: 'Hello you are connected' });
 
     socket.on('client-name', data => {
-        socket.broadcast.emit('server-message', data);
+        socket.emit('server-message', data);
     });
 
     socket.on('client-message', data => {
-        socket.broadcast.emit('server-message', data);
+        socket.emit('server-message', data);
     });
 });
 
